@@ -2,3 +2,13 @@ html {
  background-color: gray;
 }
 
+img {
+  heigh:100px;
+  width:100px;
+}
+
+
+.image-hover :hover {
+  height:150;
+  width:150px;
+}
