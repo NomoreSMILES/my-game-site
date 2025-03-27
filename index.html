@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+  .sale-banner {
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    font-size: 24px;
+    color: white;
+    background: red;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .sale-banner span {
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+  }
+</style>
+
+<div class="sale-banner">
+  <span>🔥 Welcome to the site! 🔥</span>
+</div>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
