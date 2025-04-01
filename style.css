@@ -22,12 +22,57 @@ html {
     display: inline-block;
     margin: 10px;
     padding: 10px;
-    background-color: lightgray;
+    
     border-radius: 5px;
     transition: background-color 0.3s ease;
     cursor: pointer;
    }
 
+
+
+   .animation-border {
+    
+    padding: 10px;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    position: relative;
+   }
+
+
+   @property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+   }
+   .animation-border:after{
+    
+    content:'';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient( from var(--angle), transparent 20%, orange);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 1px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+   }
+
+    .animation-border:before{
+    content:'';
+    position: absolute;
+    }
+
+    @keyframes spin {
+      from{
+        --angle: 0deg;
+      }
+      to {
+        --angle: 360deg;
+      }
+    }
    nav {
     background-color: lightgray;
     padding: 10px;
