@@ -7,6 +7,19 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    overflow: auto !important; /* ✅ Force scrolling to work */
+  }
+
+  #unity-container {
+    min-height: 100vh;
+  }
+</style>
+
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
