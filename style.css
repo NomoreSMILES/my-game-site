@@ -114,14 +114,14 @@ html {
 }
 
 .Logo {
-    height: 20px;
-    width: 20px;
+    height: 100px;
+    width: 100px;
     border-style: dotted;
     border-width: 1px;
 }
 
 
-.darkgrayBG
+.grayBG
 {
-    background-color: gray;
+    background-color: lightgray;
 }
