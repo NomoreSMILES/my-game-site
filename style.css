@@ -17,7 +17,7 @@ html {
     to { height: 250px; width: 300px; }
 }
 
-   li {
+   .animated-border li {
     list-style-type: none;
     display: inline-block;
     margin: 10px;
@@ -118,4 +118,10 @@ html {
     width: 20px;
     border-style: dotted;
     border-width: 1px;
+}
+
+
+.darkgrayBG
+{
+    background-color: gray;
 }
