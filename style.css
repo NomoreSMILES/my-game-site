@@ -17,7 +17,7 @@ html {
     to { height: 250px; width: 300px; }
 }
 
-   .animated-border li {
+    li {
     list-style-type: none;
     display: inline-block;
     margin: 10px;
