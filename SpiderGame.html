@@ -6,7 +6,6 @@
     <title>Unity WebGL Player | Spider Horror Game</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -24,27 +23,6 @@
         <div id="unity-build-title">Spider Horror Game</div>
       </div>
     </div>
-     <nav>
-    <a href ="index.html">Home🏠        ||         </a>
-      <a href ="changelog.html">ChangeLog📝        ||         </a>
-    <a href ="spacegame.html">SpaceGame🚀    ||      </a>  
-    <a href ="PebblePlatformer.html">Pebble Platformer🪨</a>
-    <h2 class="center" class="White">About Spider Game </h2>
-    <p class="space-font" class="center" class="White"> Do you like Horror games? Are you scared of spiders? If you are this game is your worst nightmare! Can you escape? Or will you be eaten by spiders!
-    </p>
-    <h3 class="center">Controls: </h3>
-    <ul class="center" class="White">
-
-      <li>WASD or arrow keys to move</li>
-      <li>Shift to run</li>
-      <li>Space to jump</li>
-      <li>CTRL to crouch </li>
-      <li>Escape to pause</li>
-      
-
-    </ul>
-    
-    </nav>
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -79,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/The Game.loader.js";
+      var loaderUrl = buildUrl + "/the Game1.loader.js";
       var config = {
-        dataUrl: buildUrl + "/The Game.data",
-        frameworkUrl: buildUrl + "/The Game.framework.js",
-        codeUrl: buildUrl + "/The Game.wasm",
+        dataUrl: buildUrl + "/the Game1.data",
+        frameworkUrl: buildUrl + "/the Game1.framework.js",
+        codeUrl: buildUrl + "/the Game1.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Spider Horror Game",
