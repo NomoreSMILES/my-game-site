@@ -82,11 +82,40 @@
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+<h2 class="space-font" style="text-align:center; margin-top: 60px;">🎮 My Next Game Launches In:</h2>
+<div id="countdown" style="font-size: 32px; color: white; text-align:center;" class="space-font">Loading...</div>
+
+<script>
+  // Set the release date and time here (YYYY-MM-DDTHH:MM:SS)
+  const releaseDate = new Date("2025-05-13T01:00:00Z");
+
+
+  function updateCountdown() {
+    const now = new Date();
+    const timeLeft = releaseDate - now;
+
+    const countdownElement = document.getElementById("countdown");
+
+    if (timeLeft <= 0) {
+      countdownElement.innerHTML = "🚀 Pebble Platformer is live!";
+      return;
+    }
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+    const seconds = Math.floor((timeLeft / 1000) % 60);
+
+    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // Run once on load
+</script>
 
 
 
-
-
+<br><br><br><br><br><br><br><br><br>
 
 
  <div class="about-me">
