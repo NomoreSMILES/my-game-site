@@ -25,6 +25,26 @@
   </head>
   
   <body>
+    <div id="reviewBox">
+  <form id="reviewForm">
+    <input type="hidden" id="gameName" value="Space Game">
+    <label for="rating">How many stars?</label><br>
+    <select id="rating">
+      <option value="1">⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="5">⭐⭐⭐⭐⭐</option>
+    </select><br><br>
+
+    <label for="feedback">Leave a comment:</label><br>
+    <textarea id="feedback" placeholder="Your thoughts..." rows="4"></textarea><br><br>
+
+    <button type="submit">Submit Review</button>
+  </form>
+
+  <div id="thanksMessage" style="display:none; color: green;">Thanks for your review!</div>
+</div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -159,26 +179,7 @@
 
 
 
-<div id="reviewBox">
-  <form id="reviewForm">
-    <input type="hidden" id="gameName" value="Space Game">
-    <label for="rating">How many stars?</label><br>
-    <select id="rating">
-      <option value="1">⭐</option>
-      <option value="2">⭐⭐</option>
-      <option value="3">⭐⭐⭐</option>
-      <option value="4">⭐⭐⭐⭐</option>
-      <option value="5">⭐⭐⭐⭐⭐</option>
-    </select><br><br>
 
-    <label for="feedback">Leave a comment:</label><br>
-    <textarea id="feedback" placeholder="Your thoughts..." rows="4"></textarea><br><br>
-
-    <button type="submit">Submit Review</button>
-  </form>
-
-  <div id="thanksMessage" style="display:none; color: green;">Thanks for your review!</div>
-</div>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
