@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="stylesheet" href="style.css">
     <style>
-      #reviewBox {
-    position: relative;
+       #reviewBox {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     z-index: 9999;
     background: white;
     padding: 20px;
     max-width: 400px;
     border: 2px solid #ccc;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
   }
 
   #reviewForm textarea {
@@ -159,8 +162,11 @@
 
     </script>
 
+
+
 <div id="reviewBox">
   <form id="reviewForm">
+    <input type="hidden" id="gameName" value="Space Game">
     <label for="rating">How many stars?</label><br>
     <select id="rating">
       <option value="1">⭐</option>
@@ -178,51 +184,48 @@
 
   <div id="thanksMessage" style="display:none; color: green;">Thanks for your review!</div>
 </div>
-  <!-- 🔥 Firebase + Review Script -->
-  <script type="module">
-    import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAIooZdbumKPwJ8PXYgl7K3KzB-UimVruM",
-  authDomain: "website-ff524.firebaseapp.com",
-  projectId: "website-ff524",
-  storageBucket: "website-ff524.firebasestorage.app",
-  messagingSenderId: "387337435881",
-  appId: "1:387337435881:web:140fe78b94094972c78e78",
-  measurementId: "G-5BWCEXFB08"
-};
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+  const firebaseConfig = {
+    apiKey: "AIzaSyAIooZdbumKPwJ8PXYgl7K3KzB-UimVruM",
+    authDomain: "website-ff524.firebaseapp.com",
+    projectId: "website-ff524",
+    storageBucket: "website-ff524.appspot.com",
+    messagingSenderId: "387337435881",
+    appId: "1:387337435881:web:140fe78b94094972c78e78",
+    measurementId: "G-5BWCEXFB08"
+  };
 
-    // Form logic
-    const form = document.getElementById('reviewForm');
-    const thanksMessage = document.getElementById('thanksMessage');
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const rating = parseInt(document.getElementById('rating').value);
-      const feedback = document.getElementById('feedback').value;
+  const form = document.getElementById('reviewForm');
+  const thanksMessage = document.getElementById('thanksMessage');
 
-      try {
-        await addDoc(collection(db, "reviews"), {
-          rating,
-          feedback,
-          createdAt: new Date()
-        });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const rating = parseInt(document.getElementById('rating').value);
+    const feedback = document.getElementById('feedback').value;
+    const gameName = document.getElementById('gameName').value;
 
-        form.reset();
-        thanksMessage.style.display = 'block';
-      } catch (error) {
-        alert("Error sending review: " + error);
-      }
-    });
-  </script>
+    try {
+      await addDoc(collection(db, "reviews"), {
+        rating,
+        feedback,
+        game: gameName,
+        createdAt: new Date()
+      });
+
+      form.reset();
+      thanksMessage.style.display = 'block';
+    } catch (error) {
+      alert("Error sending review: " + error.message);
+    }
+  });
+</script>
+
   </body>
 </html>
