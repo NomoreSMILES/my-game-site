@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
   <title>Leave a Review</title>
   <style>
     body {
@@ -37,7 +38,7 @@
 
 <h2>Leave a Review</h2>
 
-<div id="reviewForm">
+<form id="reviewForm">
   <label for="gamePick">What game are you reviewing?</label><br>
   <select id="gamePick">
     <option value="Space Game">Space Game 🚀</option>
@@ -62,7 +63,7 @@
   <button id="submitBtn">Submit</button>
 
   <div id="thanksMessage" style="display:none; color: green;">Thanks for your review!</div>
-</div>
+</form>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
