@@ -100,7 +100,7 @@ submitBtn.addEventListener('click', async (e) => {
       createdAt: new Date()
     });
 
-    document.getElementById('reviewForm').reset(); // make sure the form has this ID
+    document.getElementById('formE1').reset(); // make sure the form has this ID
     thanksMessage.style.display = 'block';
   } catch (error) {
     alert("Error submitting review: " + error.message);
