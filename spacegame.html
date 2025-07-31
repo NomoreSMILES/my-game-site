@@ -25,25 +25,9 @@
   </head>
   
   <body>
-    <div id="reviewBox">
-  <form id="reviewForm">
-    <input type="hidden" id="gameName" value="Space Game">
-    <label for="rating">How many stars?</label><br>
-    <select id="rating">
-      <option value="1">⭐</option>
-      <option value="2">⭐⭐</option>
-      <option value="3">⭐⭐⭐</option>
-      <option value="4">⭐⭐⭐⭐</option>
-      <option value="5">⭐⭐⭐⭐⭐</option>
-    </select><br><br>
+  
 
-    <label for="feedback">Leave a comment:</label><br>
-    <textarea id="feedback" placeholder="Your thoughts..." rows="4"></textarea><br><br>
-
-    <button type="submit">Submit Review</button>
-  </form>
-
-  <div id="thanksMessage" style="display:none; color: green;">Thanks for your review!</div>
+  
 </div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
@@ -79,6 +63,10 @@
       <li>Mobile Controls or in beta</li>
 
     </ul>
+
+<div class="GameReview">
+      <h1> Leave a Review for Space Game ➡️ <a href="Reviews.html"><img src="Images/Asteroids_lil_Logo.png"></a></h1>
+</div>
     </nav>
     <script>
 
@@ -177,51 +165,6 @@
 
     </script>
 
-
-
-
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAIooZdbumKPwJ8PXYgl7K3KzB-UimVruM",
-    authDomain: "website-ff524.firebaseapp.com",
-    projectId: "website-ff524",
-    storageBucket: "website-ff524.appspot.com",
-    messagingSenderId: "387337435881",
-    appId: "1:387337435881:web:140fe78b94094972c78e78",
-    measurementId: "G-5BWCEXFB08"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  const form = document.getElementById('reviewForm');
-  const thanksMessage = document.getElementById('thanksMessage');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const rating = parseInt(document.getElementById('rating').value);
-    const feedback = document.getElementById('feedback').value;
-    const gameName = document.getElementById('gameName').value;
-
-    try {
-      await addDoc(collection(db, "reviews"), {
-        rating,
-        feedback,
-        game: gameName,
-        createdAt: new Date()
-      });
-
-      form.reset();
-      thanksMessage.style.display = 'block';
-    } catch (error) {
-      alert("Error sending review: " + error.message);
-    }
-  });
-</script>
 
   </body>
 </html>
