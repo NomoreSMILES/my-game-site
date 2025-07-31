@@ -125,3 +125,10 @@ html {
 {
     background-color: lightgray;
 }
+
+
+
+.GameReview img {
+    height: 20px;
+    width: 20px;
+}
