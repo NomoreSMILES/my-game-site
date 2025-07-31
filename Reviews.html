@@ -38,7 +38,7 @@
 
 <h2>Leave a Review</h2>
 
-<form id="reviewForm">
+<form id="formE1">
   <label for="gamePick">What game are you reviewing?</label><br>
   <select id="gamePick">
     <option value="Space Game">Space Game 🚀</option>
@@ -67,43 +67,46 @@
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAIooZdbumKPwJ8PXYgl7K3KzB-UimVruM",
-    authDomain: "website-ff524.firebaseapp.com",
-    projectId: "website-ff524",
-    storageBucket: "website-ff524.appspot.com",
-    messagingSenderId: "387337435881",
-    appId: "1:387337435881:web:140fe78b94094972c78e78",
-    measurementId: "G-5BWCEXFB08"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyAIooZdbumKPwJ8PXYgl7K3KzB-UimVruM",
+  authDomain: "website-ff524.firebaseapp.com",
+  projectId: "website-ff524",
+  storageBucket: "website-ff524.appspot.com",
+  messagingSenderId: "387337435881",
+  appId: "1:387337435881:web:140fe78b94094972c78e78",
+  measurementId: "G-5BWCEXFB08"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  const submitBtn = document.getElementById('submitBtn');
-  const thanksMessage = document.getElementById('thanksMessage');
+const submitBtn = document.getElementById('submitBtn');
+const thanksMessage = document.getElementById('thanksMessage');
 
-  submitBtn.addEventListener('click', async () => {
-    const gameName = document.getElementById('gamePick').value;
-    const rating = parseInt(document.getElementById('rating').value);
-    const feedback = document.getElementById('feedback').value;
+submitBtn.addEventListener('click', async (e) => {
+  e.preventDefault();
 
-    try {
-      await addDoc(collection(db, "reviews"), {
-        game: gameName,
-        rating,
-        feedback,
-        createdAt: new Date()
-      });
+  const gameName = document.getElementById('gamePick').value;
+  const rating = parseInt(document.getElementById('rating').value);
+  const feedback = document.getElementById('feedback').value;
 
-      document.getElementById('reviewForm').reset();
-      thanksMessage.style.display = 'block';
-    } catch (error) {
-      alert("Error submitting review: " + error.message);
-    }
-  });
+  try {
+    await addDoc(collection(db, "reviews"), {
+      game: gameName,
+      rating,
+      feedback,
+      createdAt: new Date()
+    });
+
+    document.getElementById('reviewForm').reset(); // make sure the form has this ID
+    thanksMessage.style.display = 'block';
+  } catch (error) {
+    alert("Error submitting review: " + error.message);
+  }
+});
+
 </script>
 
 </body>
