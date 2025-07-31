@@ -8,6 +8,22 @@
 ">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+      #reviewBox {
+    position: relative;
+    z-index: 9999;
+    background: white;
+    padding: 20px;
+    max-width: 400px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+
+  #reviewForm textarea {
+    width: 100%;
+    resize: vertical;
+  }
+    </style>
   </head>
   
   <body>
@@ -141,9 +157,9 @@
 
       document.body.appendChild(script);
 
-    </script>
+ 
 
-    <h2>Rate This Game</h2>
+<div id="reviewBox">
   <form id="reviewForm">
     <label for="rating">How many stars?</label><br>
     <select id="rating">
@@ -155,13 +171,13 @@
     </select><br><br>
 
     <label for="feedback">Leave a comment:</label><br>
-    <textarea id="feedback" placeholder="Your thoughts..." rows="4" cols="40"></textarea><br><br>
+    <textarea id="feedback" placeholder="Your thoughts..." rows="4"></textarea><br><br>
 
     <button type="submit">Submit Review</button>
   </form>
 
   <div id="thanksMessage" style="display:none; color: green;">Thanks for your review!</div>
-
+</div>
   <!-- 🔥 Firebase + Review Script -->
   <script type="module">
     import { initializeApp } from "firebase/app";
