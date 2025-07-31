@@ -142,5 +142,71 @@
       document.body.appendChild(script);
 
     </script>
+
+    <h2>Rate This Game</h2>
+  <form id="reviewForm">
+    <label for="rating">How many stars?</label><br>
+    <select id="rating">
+      <option value="1">⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="5">⭐⭐⭐⭐⭐</option>
+    </select><br><br>
+
+    <label for="feedback">Leave a comment:</label><br>
+    <textarea id="feedback" placeholder="Your thoughts..." rows="4" cols="40"></textarea><br><br>
+
+    <button type="submit">Submit Review</button>
+  </form>
+
+  <div id="thanksMessage" style="display:none; color: green;">Thanks for your review!</div>
+
+  <!-- 🔥 Firebase + Review Script -->
+  <script type="module">
+    import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAIooZdbumKPwJ8PXYgl7K3KzB-UimVruM",
+  authDomain: "website-ff524.firebaseapp.com",
+  projectId: "website-ff524",
+  storageBucket: "website-ff524.firebasestorage.app",
+  messagingSenderId: "387337435881",
+  appId: "1:387337435881:web:140fe78b94094972c78e78",
+  measurementId: "G-5BWCEXFB08"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+    // Form logic
+    const form = document.getElementById('reviewForm');
+    const thanksMessage = document.getElementById('thanksMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const rating = parseInt(document.getElementById('rating').value);
+      const feedback = document.getElementById('feedback').value;
+
+      try {
+        await addDoc(collection(db, "reviews"), {
+          rating,
+          feedback,
+          createdAt: new Date()
+        });
+
+        form.reset();
+        thanksMessage.style.display = 'block';
+      } catch (error) {
+        alert("Error sending review: " + error);
+      }
+    });
+  </script>
   </body>
 </html>
