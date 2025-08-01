@@ -151,9 +151,22 @@
     </div>
 
 
-    
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, increment, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  const app = initializeApp({ /* same config as before */ });
+  const db = getDatabase(app);
+
+  const pageRef = ref(db, 'pageViews');
+  runTransaction(pageRef, current => {
+    return (current || 0) + 1;
+  }).then(() => console.log("Visit logged."));
+</script>
+
 </body>
 </html>
+
 
 
 
