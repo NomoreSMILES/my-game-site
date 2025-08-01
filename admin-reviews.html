@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Private Reviews</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 2rem;
+    }
+    h2 { text-align: center; }
+    .review {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Private Game Reviews</h2>
+  <div id="reviewList">Loading reviews...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAIooZdbumKPwJ8PXYgl7K3KzB-UimVruM",
+      authDomain: "website-ff524.firebaseapp.com",
+      projectId: "website-ff524",
+      storageBucket: "website-ff524.appspot.com",
+      messagingSenderId: "387337435881",
+      appId: "1:387337435881:web:140fe78b94094972c78e78",
+      measurementId: "G-5BWCEXFB08"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const reviewList = document.getElementById("reviewList");
+
+    async function loadReviews() {
+      try {
+        const reviewsRef = collection(db, "reviews");
+        const q = query(reviewsRef, orderBy("createdAt", "desc"));
+        const snapshot = await getDocs(q);
+        reviewList.innerHTML = "";
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const reviewEl = document.createElement("div");
+          reviewEl.className = "review";
+          reviewEl.innerHTML = `
+            <strong>Game:</strong> ${data.game}<br>
+            <strong>Stars:</strong> ${data.rating}<br>
+            <strong>Comment:</strong> ${data.feedback || "No comment"}<br>
+            <small><em>${new Date(data.createdAt.seconds * 1000).toLocaleString()}</em></small>
+          `;
+          reviewList.appendChild(reviewEl);
+        });
+
+        if (snapshot.empty) {
+          reviewList.innerHTML = "No reviews yet.";
+        }
+
+      } catch (error) {
+        reviewList.innerHTML = "Error loading reviews: " + error.message;
+      }
+    }
+
+    loadReviews();
+  </script>
+</body>
+</html>
