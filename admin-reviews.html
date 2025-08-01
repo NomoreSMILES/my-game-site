@@ -20,6 +20,13 @@
   </style>
 </head>
 <body>
+  <script>
+  const pass = prompt("Enter access code to view reviews:");
+  if (pass !== "YourSecretCode123") {
+    document.body.innerHTML = "Access denied.";
+  }
+</script>
+
   <h2>Private Game Reviews</h2>
   <div id="reviewList">Loading reviews...</div>
 
