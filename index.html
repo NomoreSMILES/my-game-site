@@ -1,65 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-  .sale-banner {
-    position: fixed;
-    top: 10px;
-    width: 100%;
-    font-size: 24px;
-    color: white;
-    background: yellow;
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-  }
+ 
 
-  @keyframes scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-  .sale-banner span {
-    display: inline-block;
-    animation: scroll 10s linear infinite;
-  }
-
-
-        .space-font {
-            font-family: "Press Start 2P", system-ui;
-  font-weight: 400;
-  font-style: normal;
-        }
-</style>
-
-<div class="sale-banner">
-  <span class="space-font">🔥 Welcome to the site! 🔥</span>
-</div>
-
-<br>
-<br>
-<br>
-<nav>
-    <a href ="changelog.html">ChangeLog📝        ||         </a>
-    <a href ="spacegame.html">SpaceGame🚀    ||      </a>   
-    <a href ="SpiderGame.html">Spider Game🕷️ ||  </a> 
-    <a href ="PebblePlatformer.html">Pebble Platformer🪨 || </a>
-    <a href ="DeliveryDillemmas.html">Delivery Dilemmas📦 || </a>
-    <a href ="FishyBuisness.html">Fishy Buisness🐟 </a>
-    <a href ="MopOrDrop.html">Mop Or Drop🫧 </a>
-    
-    
-    </nav>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" href="Images/favicon.ico
-    ">
+    <link rel="shortcut icon" href="Images/favicon.ico">
 
 
     <title>Homepage</title>
@@ -71,6 +21,15 @@
 
 </head>
 <body>
+  <nav>
+    <img src="Images/nomoresmiles-pfp.png" alt="Logo" class="logo">
+    <ul class="nav-links">
+
+    <li><a href ="changelog.html">ChangeLog📝</a></li>
+    <li><a href="Reviews.html">Reviews📢</a></li>
+    
+    
+    </nav>
     
     <div class="Games">
 <ul>
@@ -103,70 +62,13 @@
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<h2 class="space-font" style="text-align:center; margin-top: 60px;">🎮 My Next Game Launches In:</h2>
-<div id="countdown" style="font-size: 32px; color: white; text-align:center;" class="space-font">Loading...</div>
-
-<script>
-  // Set the release date and time here (YYYY-MM-DDTHH:MM:SS)
-  const releaseDate = new Date("2025-06-17T24:00:00Z");
 
 
-
-  function updateCountdown() {
-    const now = new Date();
-    const timeLeft = releaseDate - now;
-
-    const countdownElement = document.getElementById("countdown");
-
-    if (timeLeft <= 0) {
-      countdownElement.innerHTML = "🐟Fishy Buisness is LIVE!";
-      return;
-    }
-
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
-    const seconds = Math.floor((timeLeft / 1000) % 60);
-
-    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown(); // Run once on load
-</script>
-
-
-
-<br><br><br><br><br><br><br><br><br>
-
-
- <div class="about-me">
-    
-<h1>About Me</h1>
-<img src="Images/Screenshot 2025-05-07 211143.png"  width=200px height=200px>
-        <p>Hello! My name is No More Smiles. I made this lil website for Y'all to enjoy and play my games.
-        I am a game developer and I love making games. I hope you enjoy my games as much as I enjoyed making them!
-        I currently have one game out called SpaceGame. I am realeasing a new game Spider Game which is spooky.
-        I am also a big fan of horror games and I love playing them. My New Game Pebble Platformer is very similar 
-            to game you see now a days. Dont touch the Ice!
-        </p>
-    </div>
-
-
-    <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getDatabase, ref, increment, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-
-  const app = initializeApp({ /* same config as before */ });
-  const db = getDatabase(app);
-
-  const pageRef = ref(db, 'pageViews');
-  runTransaction(pageRef, current => {
-    return (current || 0) + 1;
-  }).then(() => console.log("Visit logged."));
-</script>
 
 </body>
+
+<footer>
+    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
 </html>
 
 

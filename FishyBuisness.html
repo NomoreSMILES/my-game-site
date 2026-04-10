@@ -8,8 +8,19 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
+  
+<header>
+  <h1 class="space-font">🐟Fishy Business Game</h1>
+  <nav>
+    <a href="index.html">Home🏠</a>
+    <a href="changelog.html">ChangeLog📝</a>
+  </nav>
+</header>
+
+
+<main>
+  <!-- Unity Game -->
+  <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -21,33 +32,35 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Fishy Business</div>
+        <div id="unity-build-title">Fishy Business Game</div>
       </div>
     </div>
-     <nav>
-    <a href ="index.html">Home🏠        ||         </a>
-      <a href ="changelog.html">ChangeLog📝        ||         </a>
-    <a href ="spacegame.html">SpaceGame🚀    ||      </a>  
-    <a href ="PebblePlatformer.html">Pebble Platformer🪨</a>
-    <a href ="SpiderGame.html">Spider Game 🕷️</a>   
-    <h2 class="center" class="White">About Fishy Buisness </h2>
-    <p class="space-font" class="center" class="White"> New game swimming on in! Fishy Buisness is a Fishy game. Please the chef or else.... Watch out for sharks 
+
+  <!-- Game Info -->
+  <section class="game-info">
+    <p>
+       New game swimming on in! Fishy Buisness is a Fishy game. Please the chef or else.... Watch out for sharks and other sea creatures! Can you survive the ocean? How long can you last? Find out in Fishy Buisness!
     </p>
-    <h3 class="center">Controls: </h3>
-    <ul class="center" class="White">
 
-      <li>WASD or arrow keys to move</li>
-      <li>Shift to run</li>
-      <li>Space to jump/swim up</li>
-      <li>CTRL to swim down </li>
-      
-      
-
+    <h3>🎮 Controls</h3>
+    <ul>
+      <li>WASD / Arrow Keys → Move</li>
+      <li>Shift → Run</li>
+      <li>Space → Jump</li>
+      <li>CTRL → Crouch</li>
+      <li>Mobile controls supported</li>
     </ul>
-    <div class="GameReview">
-      <h1> Leave a Review for Fishy Business ➡️ <a href="Reviews.html"><img src="Images/Fishy_business_lil_logo-removebg-preview.ico"></a></h1>
-</div>
-    </nav>
+  </section>
+
+  <!-- Review -->
+  <section class="review-box">
+    <h2>Leave a Review</h2>
+    <a href="Reviews.html" class="review-button">Review Fishy Business ➡️</a>
+  </section>
+<br>
+  
+</main>
+
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -144,4 +157,6 @@
 
     </script>
   </body>
+  <footer>
+    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
 </html>

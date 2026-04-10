@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
+     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Spider Horror Game</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
@@ -9,7 +9,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="unity-container" class="unity-desktop">
+
+<header>
+  <h1 class="space-font">🕷️ Spider Horror Game</h1>
+  <nav>
+    <a href="index.html">Home🏠</a>
+    <a href="changelog.html">ChangeLog📝</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Unity Game -->
+  <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -24,33 +35,36 @@
         <div id="unity-build-title">Spider Horror Game</div>
       </div>
     </div>
-    <nav>
-    <a href ="index.html">Home🏠        ||         </a>
-      <a href ="changelog.html">ChangeLog📝        ||         </a>
-    <a href ="spacegame.html">SpaceGame🚀    ||      </a>  
-    <a href ="PebblePlatformer.html">Pebble Platformer🪨</a>
-    <a href ="FishyBuisness.html">Fishy Buisness🐟 </a> 
-    <h2 class="center" class="White">About Spider Chase </h2>
-    <p class="space-font" class="center" class="White"> Do you like Horror games? Are you scared of spiders? If you are this game is your worst nightmare! Can you escape? Or will you be eaten by spiders!
+
+  <!-- Game Info -->
+  <section class="game-info">
+    <p>
+      Do you like horror games? Are you scared of spiders?
+      This game is your worst nightmare.
+      Can you escape… or will you be eaten?
     </p>
-    <h3 class="center">Controls: </h3>
-    <ul class="center" class="White">
-    
 
-      <li>WASD or arrow keys to move
-</li>
-      <li>Shift to run</li>
-      <li>Space to jump</li>
-      <li>CTRL to crouch </li>
-      <li>NOW with mobile controls</li>
-      
-      
-
+    <h3>🎮 Controls</h3>
+    <ul>
+      <li>WASD / Arrow Keys → Move</li>
+      <li>Shift → Run</li>
+      <li>Space → Jump</li>
+      <li>CTRL → Crouch</li>
+      <li>Mobile controls supported</li>
     </ul>
-    <div class="GameReview">
-      <h1> Leave a Review for Spider Chase ➡️ <a href="Reviews.html"><img src="Images/SpiderChase_lil_logo-removebg-preview.ico"></a></h1>
-</div>
-    </nav>
+  </section>
+
+  <!-- Review -->
+  <section class="review-box">
+    <h2>Leave a Review</h2>
+    <a href="Reviews.html" class="review-button">Review Spider Chase ➡️</a>
+  </section>
+<br>
+  
+</main>
+
+
+   
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -147,4 +161,9 @@
 
     </script>
   </body>
+  
+<footer>
+    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
+</html>
+
 </html>

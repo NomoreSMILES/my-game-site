@@ -1,23 +1,22 @@
 html {
     background-color: #191e22;
    }
-   .hover-image:hover {
-    animation: grow 0.5s forwards;
-  }
-   img {
+   
+    .Games img {
      height:150px;
      width:200px;
    }
    
-   
+   .space-font {
+            font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+        }
    
 
-@keyframes grow {
-    from { height: 150px; width: 200px; }
-    to { height: 250px; width: 300px; }
-}
 
-    li {
+
+     .Games ul li {
     list-style-type: none;
     display: inline-block;
     margin: 10px;
@@ -27,8 +26,15 @@ html {
     transition: background-color 0.3s ease;
     cursor: pointer;
    }
+.Games ul li:hover {
+    transform: scale(1.25);
+    transition: transform 0.3s ease;
+  }
 
-
+  .Games ul li:not(:hover) {
+    transform: scale(0.95);
+    transition: transform 0.5s ease;
+  }
 
    .animation-border {
     
@@ -79,28 +85,57 @@ html {
     border-radius: 5px;
     margin-bottom: 20px;
     font-family: Bradley Hand, cursive;
+    
+    vertical-align: middle;
    }
 
 
    nav a{
+    align-self: center;
+    padding: 50px;
     text-decoration: none;
     color: black;
     font-size: 20px;
+    margin: 0 15px;
    }
 
    nav a:hover {
     color: orange;
    }
 
+   nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    
+   }
+
+   nav ul li {
+    margin: 0 15px;
+    vertical-align: middle;
+   }
 
 
-   .about-me {
+   .logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-right: 20px;
+   }
+
+   footer {
     background-color: lightgray;
     padding: 20px;
     border-radius: 5px;
     font-family: Bradley Hand, cursive;
     margin-bottom: 20px;
     text-align: center;
+    bottom: 0%;
+    margin-top: 1000px;
    }
 
 
@@ -132,3 +167,112 @@ html {
     height: 20px;
     width: 20px;
 }
+
+
+
+
+.loading-text {
+  text-align: center;
+  color: #ff5555;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+
+body {
+  background: #0b0b0f;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+nav a {
+  margin: 0 10px;
+  color: #3b3b3b;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* Game container */
+#unity-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+/* Info section */
+.game-info {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Controls list */
+.game-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.game-info li {
+  background: #1a1a22;
+  margin: 8px auto;
+  padding: 10px;
+  border-radius: 8px;
+  width: 250px;
+}
+
+/* Review box */
+.review-box {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.review-button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: red;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.review-button:hover {
+  background: darkred;
+  transform: scale(1.05);
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+#unity-canvas {
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,0,0,0.2);
+}
+
+
+.unity-desktop {
+  width: 800px;
+  height: 450px;
+  margin: 0 auto;
+}
+
+
+#unity-footer { position: absolute; margin-top: 20%;}
+#unity-container { margin-top: 15%;}

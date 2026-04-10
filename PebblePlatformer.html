@@ -9,8 +9,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
   
-  <body>
-    <div id="unity-container" class="unity-desktop">
+  
+<header>
+  <h1 class="space-font">🪨Pebble Platformer Game</h1>
+  <nav>
+    <a href="index.html">Home🏠</a>
+    <a href="changelog.html">ChangeLog📝</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Unity Game -->
+  <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -22,31 +32,36 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">SpaceGame</div>
+        <div id="unity-build-title">Pebble Platformer Game</div>
       </div>
     </div>
-    <nav>
-    <a href ="index.html">Home🏠        ||         </a>
-    <a href ="changelog.html">ChangeLog📝    ||      </a>   
-    <a href ="SpiderGame.html">Spider Game🕷️ ||  </a> 
-    <a href ="PebblePlatformer.html">Space Game🚀</a>
-    
-    <h2 class="center" class="White">About Pebble Platformer </h2>
-    <p class="space-font" class="center" class="White"> Pebble Platformer is a game where you must jump to the other platforms! Watch out for the broken Platforms if you hit your head on them well tough luck! How many Jumps can you do?
+
+  <!-- Game Info -->
+  <section class="game-info">
+    <p>
+      Pebble Platformer is a game where you must jump to the other platforms! Watch out for the broken Platforms if you hit your head on them well tough luck! How many Jumps can you do?
     </p>
-    <h3 class="center">Controls: </h3>
-    <ul class="center" class="White">
 
-      <li>WASD to move </li>
-      
-      <li>Escape to pause</li>
-      <li>Mobile Controls in beta</li>
-
+    <h3>🎮 Controls</h3>
+    <ul>
+      <li>WASD / Arrow Keys → Move</li>
+      <li>Shift → Run</li>
+      <li>Space → Jump</li>
+      <li>CTRL → Crouch</li>
+      <li>Mobile controls supported</li>
     </ul>
-      <div class="GameReview">
-      <h1> Leave a Review for Pebble Platformer ➡️ <a href="Reviews.html"><img src="Images/Pebble_lil_Logo.png"></a></h1>
-</div>
-    </nav>
+  </section>
+
+  <!-- Review -->
+  <section class="review-box">
+    <h2>Leave a Review</h2>
+    <a href="Reviews.html" class="review-button">Review Pebble Platformer ➡️</a>
+  </section>
+<br>
+  
+</main>
+
+
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -143,4 +158,6 @@
 
     </script>
   </body>
+  <footer>
+    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
 </html>

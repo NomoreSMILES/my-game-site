@@ -4,11 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Mop or Drop</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="shortcut icon" href="Images/Spray Bottle Spraying.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
+  
+<header>
+  <h1 class="space-font">🧼Mop or Drop Game</h1>
+  <nav>
+    <a href="index.html">Home🏠</a>
+    <a href="changelog.html">ChangeLog📝</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Unity Game -->
+  <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -20,9 +31,35 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Mop or Drop</div>
+        <div id="unity-build-title">Mop or Drop Game</div>
       </div>
     </div>
+
+  <!-- Game Info -->
+  <section class="game-info">
+    <p>
+       New game swimming on in! Fishy Buisness is a Fishy game. Please the chef or else.... Watch out for sharks and other sea creatures! Can you survive the ocean? How long can you last? Find out in Fishy Buisness!
+    </p>
+
+    <h3>🎮 Controls</h3>
+    <ul>
+      <li>WASD / Arrow Keys → Move</li>
+      <li>Shift → Run</li>
+      <li>Space → Jump</li>
+      <li>CTRL → Crouch</li>
+      <li>Mobile controls supported</li>
+    </ul>
+  </section>
+
+  <!-- Review -->
+  <section class="review-box">
+    <h2>Leave a Review</h2>
+    <a href="Reviews.html" class="review-button">Review Mop or Drop ➡️</a>
+  </section>
+<br>
+  
+</main>
+
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -119,4 +156,7 @@
 
     </script>
   </body>
+  <footer>
+    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
+  </footer>
 </html>

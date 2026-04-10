@@ -9,8 +9,19 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
+   
+<header>
+  <h1 class="space-font">📦Delivery Dilemmas Game</h1>
+  <nav>
+    <a href="index.html">Home🏠</a>
+    <a href="changelog.html">ChangeLog📝</a>
+  </nav>
+</header>
+
+
+<main>
+  <!-- Unity Game -->
+  <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -22,33 +33,35 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Delivery Dilemmas</div>
+        <div id="unity-build-title">Delivery Dilemmas Game</div>
       </div>
     </div>
-    <nav>
-    <a href ="index.html">Home🏠        ||         </a>
-      <a href ="changelog.html">ChangeLog📝        ||         </a>
-    <a href ="spacegame.html">SpaceGame🚀    ||      </a>  
-    <a href ="PebblePlatformer.html">Pebble Platformer🪨</a>
-    <a href ="SpiderGame.html">Spider Game🕷️ ||  </a> 
-    <h2 class="center" class="White">About Delivery Dilemmas </h2>
-    <p class="space-font" class="center" class="White"> Whats it like being a Mailman? What do they have to go through? Well thats what this simulator is just for! DO you have what it takes to be a mailman?
+
+  <!-- Game Info -->
+  <section class="game-info">
+    <p>
+       New game swimming on in! Fishy Buisness is a Fishy game. Please the chef or else.... Watch out for sharks and other sea creatures! Can you survive the ocean? How long can you last? Find out in Fishy Buisness!
     </p>
-    <h3 class="center">Controls: </h3>
-    <ul class="center" class="White">
 
-      <li>WASD or arrow keys to move</li>
-      <li>Shift to run</li>
-      <li>Space to jump</li>
-      <li>CTRL to crouch </li>
-      <li>move mouse to look around</li>
-      
-
+    <h3>🎮 Controls</h3>
+    <ul>
+      <li>WASD / Arrow Keys → Move</li>
+      <li>Shift → Run</li>
+      <li>Space → Jump</li>
+      <li>CTRL → Crouch</li>
+      <li>Mobile controls supported</li>
     </ul>
-    <div class="GameReview">
-      <h1> Leave a Review for Delivery Dillemmas ➡️ <a href="Reviews.html"><img src="Images/IMG_6749.ico"></a></h1>
-</div>
-    </nav>
+  </section>
+
+  <!-- Review -->
+  <section class="review-box">
+    <h2>Leave a Review</h2>
+    <a href="Reviews.html" class="review-button">Review Delivery Dilemmas ➡️</a>
+  </section>
+<br>
+  
+</main>
+
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -145,4 +158,6 @@
 
     </script>
   </body>
+  <footer>
+    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
 </html>
