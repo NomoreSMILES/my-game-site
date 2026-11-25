@@ -1,70 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Send feedback on a More Smiles Games browser game.">
+  <meta name="theme-color" content="#101018">
+  <title>Reviews | More Smiles Games</title>
+  <link rel="icon" href="Images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>Leave a Review</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 2rem;
-      background: #f4f4f4;
-    }
-    #reviewForm {
-      background: white;
-      padding: 1rem;
-      max-width: 500px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    textarea {
-      width: 100%;
-      resize: vertical;
-    }
-  </style>
 </head>
 <body>
-
-<nav>
-  <a href="index.html">Home🏠 || </a>
-  <a href="changelog.html">ChangeLog📝 || </a>
-  <a href="spacegame.html">SpaceGame🚀 || </a>
-  <a href="PebblePlatformer.html">Pebble Platformer🪨 || </a>
-  <a href="SpiderGame.html">Spider Game 🕷️ || </a>
-  <a href="DeliveryDillemmas.html">Delivery Dillemmas 📦 || </a>
-  <a href="FishyBusiness.html">Fishy Business 🐟</a>
-</nav>
-
-<h2>Leave a Review</h2>
-
-<form id="formE1">
-  <label for="gamePick">What game are you reviewing?</label><br>
-  <select id="gamePick">
-    <option value="Space Game">Space Game 🚀</option>
-    <option value="Pebble Platformer">Pebble Platformer 🪨</option>
-    <option value="Spider Chase">Spider Game 🕷️</option>
-    <option value="Delivery Dillemmas">Delivery Dillemmas 📦</option>
-    <option value="Fishy Business">Fishy Business 🐟</option>
-  </select><br><br>
-
-  <label for="rating">Stars:</label><br>
-  <select id="rating">
-    <option value="1">⭐</option>
-    <option value="2">⭐⭐</option>
-    <option value="3">⭐⭐⭐</option>
-    <option value="4">⭐⭐⭐⭐</option>
-    <option value="5">⭐⭐⭐⭐⭐</option>
-  </select><br><br>
-
-  <label for="feedback">Your Feedback:</label><br>
-  <textarea id="feedback" rows="4" placeholder="Type something here..."></textarea><br><br>
-
-  <button id="submitBtn">Submit</button>
-
-  <div id="thanksMessage" style="display:none; color: green;">Thanks for your review!</div>
-</form>
-
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><img src="Images/nomoresmiles-pfp.png" alt="" width="38" height="38">More Smiles<span>Games</span></a>
+    <nav aria-label="Main navigation"><a href="index.html#games">Games</a><a href="Reviews.html" aria-current="page">Reviews</a><a href="changelog.html">Changelog</a></nav>
+  </div>
+</header>
+<main id="main" class="wrap text-page">
+  <div class="page-heading"><h1>Leave a review</h1><p>What did you enjoy? What would you change?</p></div>
+  <form id="formE1" class="panel review-form">
+    <div class="field-row">
+      <label>Game
+        <select id="gamePick" name="game">
+          <option value="Space Game">Space Game</option>
+          <option value="Mop or Drop">Mop or Drop</option>
+          <option value="Delivery Dillemmas">Delivery Dilemmas</option>
+          <option value="Fishy Business">Fishy Business</option>
+          <option value="Pebble Platformer">Pebble Platformer</option>
+          <option value="Spider Chase">Spider Chase</option>
+        </select>
+      </label>
+      <label>Rating
+        <select id="rating" name="rating">
+          <option value="5">5 out of 5</option>
+          <option value="4">4 out of 5</option>
+          <option value="3">3 out of 5</option>
+          <option value="2">2 out of 5</option>
+          <option value="1">1 out of 5</option>
+        </select>
+      </label>
+    </div>
+    <label>Your feedback <span class="muted">(optional)</span>
+      <textarea id="feedback" name="feedback" rows="5" placeholder="Tell me about your experience"></textarea>
+    </label>
+    <button id="submitBtn" class="button" type="submit" disabled>Send review</button>
+    <p id="thanksMessage" role="status"></p>
+    <noscript><p>Enable JavaScript to send a review.</p></noscript>
+  </form>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner"><span>More Smiles Games &middot; &copy; 2026 MilesOfSmiles</span><a href="index.html#games">Browse games</a></div>
+</footer>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -82,32 +72,38 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const submitBtn = document.getElementById('submitBtn');
-const thanksMessage = document.getElementById('thanksMessage');
 
-submitBtn.addEventListener('click', async (e) => {
-  e.preventDefault();
+const form = document.getElementById("formE1");
+const game = document.getElementById("gamePick");
+const submitButton = document.getElementById("submitBtn");
+const status = document.getElementById("thanksMessage");
+const requestedGame = new URLSearchParams(location.search).get("game");
+if (Array.from(game.options).some(option => option.value === requestedGame)) {
+  game.value = requestedGame;
+}
+submitButton.disabled = false;
 
-  const gameName = document.getElementById('gamePick').value;
-  const rating = parseInt(document.getElementById('rating').value);
-  const feedback = document.getElementById('feedback').value;
-
+form.addEventListener("submit", async event => {
+  event.preventDefault();
+  if (submitButton.disabled) return;
+  submitButton.disabled = true;
+  status.textContent = "Sending review...";
+  const { game, rating, feedback } = Object.fromEntries(new FormData(form));
   try {
     await addDoc(collection(db, "reviews"), {
-      game: gameName,
-      rating,
+      game,
+      rating: Number(rating),
       feedback,
       createdAt: new Date()
     });
-
-    document.getElementById('formE1').reset(); // make sure the form has this ID
-    thanksMessage.style.display = 'block';
-  } catch (error) {
-    alert("Error submitting review: " + error.message);
+    form.elements.feedback.value = "";
+    status.textContent = "Thanks for your review!";
+  } catch {
+    status.textContent = "Your review could not be sent. Please try again.";
+  } finally {
+    submitButton.disabled = false;
   }
 });
-
 </script>
-
 </body>
 </html>

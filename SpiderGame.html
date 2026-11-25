@@ -1,169 +1,57 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Spider Horror Game</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-
-<header>
-  <h1 class="space-font">🕷️ Spider Horror Game</h1>
-  <nav>
-    <a href="index.html">Home🏠</a>
-    <a href="changelog.html">ChangeLog📝</a>
-  </nav>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find a way out before the spider finds you.">
+  <meta name="theme-color" content="#101018">
+  <title>Spider Chase | More Smiles Games</title>
+  <link rel="icon" href="Images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><img src="Images/nomoresmiles-pfp.png" alt="" width="38" height="38">More Smiles<span>Games</span></a>
+    <nav aria-label="Main navigation"><a href="index.html#games">Games</a><a href="Reviews.html">Reviews</a><a href="changelog.html">Changelog</a></nav>
+  </div>
 </header>
-
-<main>
-  <!-- Unity Game -->
-  <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+<main id="main" class="wrap play-page">
+  <a class="back-link" href="index.html#games">Back to games</a>
+  <div class="page-heading"><p class="eyebrow">Horror</p><h1>Spider Chase</h1></div>
+  <div class="player-layout">
+    <section class="player" aria-label="Spider Chase game" data-build="the game2" data-product="Spider Horror Game" data-version="0.1">
+      <div class="player-screen">
+        <canvas width="960" height="600" tabindex="0" aria-label="Spider Chase game canvas" hidden></canvas>
+        <div class="player-cover">
+          <img src="Images/SpiderGameCover" alt="">
+          <div class="launch">
+            <button type="button" class="button start-game">Play Spider Chase</button>
+            <p class="player-status" role="status"></p>
+            <progress max="1" value="0" aria-label="Game loading progress" hidden></progress>
+            <noscript><p>Enable JavaScript to play this game.</p></noscript>
+          </div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Spider Horror Game</div>
-      </div>
-    </div>
-
-  <!-- Game Info -->
-  <section class="game-info">
-    <p>
-      Do you like horror games? Are you scared of spiders?
-      This game is your worst nightmare.
-      Can you escape… or will you be eaten?
-    </p>
-
-    <h3>🎮 Controls</h3>
-    <ul>
-      <li>WASD / Arrow Keys → Move</li>
-      <li>Shift → Run</li>
-      <li>Space → Jump</li>
-      <li>CTRL → Crouch</li>
-      <li>Mobile controls supported</li>
-    </ul>
-  </section>
-
-  <!-- Review -->
-  <section class="review-box">
-    <h2>Leave a Review</h2>
-    <a href="Reviews.html" class="review-button">Review Spider Chase ➡️</a>
-  </section>
-<br>
-  
+      <div class="player-toolbar"><span>Spider Chase</span><button type="button" class="fullscreen" disabled>Fullscreen</button></div>
+      <div class="player-warning" role="status" hidden></div>
+    </section>
+    <aside class="game-details">
+      <h2>About the game</h2>
+      <p>Find a way out before the spider finds you.</p>
+      <h2>Controls</h2><ul class="controls"><li>WASD / Arrow keys to move</li><li>Shift to run</li><li>Space to jump</li><li>Ctrl to crouch</li><li>Touch controls supported</li></ul>
+      
+      <a class="button secondary" href="Reviews.html?game=Spider%20Chase">Review this game</a>
+    </aside>
+  </div>
 </main>
-
-
-   
-    <script>
-
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
-
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
-
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/the game2.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/the game2.data",
-        frameworkUrl: buildUrl + "/the game2.framework.js",
-        codeUrl: buildUrl + "/the game2.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Spider Horror Game",
-        productVersion: "0.1",
-        showBanner: unityShowBanner,
-      };
-
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
-
-      document.body.appendChild(script);
-
-    </script>
-  </body>
-  
-<footer>
-    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
-</html>
-
+<footer class="site-footer">
+  <div class="wrap footer-inner"><span>More Smiles Games &middot; &copy; 2026 MilesOfSmiles</span><a href="index.html#games">Browse games</a></div>
+</footer>
+<script src="player.js" defer></script>
+</body>
 </html>

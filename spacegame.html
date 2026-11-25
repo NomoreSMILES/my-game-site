@@ -1,171 +1,57 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | SpaceGame</title>
-    <link rel="shortcut icon" href="Images/Asteroids_lil_Logo.png
-">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="stylesheet" href="style.css">
-    
-  </head>
-
-<header>
-  <h1 class="space-font">🚀SpaceGame</h1>
-  <nav>
-    <a href="index.html">Home🏠</a>
-    <a href="changelog.html">ChangeLog📝</a>
-  </nav>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dodge asteroids and outlast alien waves.">
+  <meta name="theme-color" content="#101018">
+  <title>Space Game | More Smiles Games</title>
+  <link rel="icon" href="Images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><img src="Images/nomoresmiles-pfp.png" alt="" width="38" height="38">More Smiles<span>Games</span></a>
+    <nav aria-label="Main navigation"><a href="index.html#games">Games</a><a href="Reviews.html">Reviews</a><a href="changelog.html">Changelog</a></nav>
+  </div>
 </header>
-
-<main>
-  <!-- Unity Game -->
-  <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+<main id="main" class="wrap play-page">
+  <a class="back-link" href="index.html#games">Back to games</a>
+  <div class="page-heading"><p class="eyebrow">Shooter</p><h1>Space Game</h1></div>
+  <div class="player-layout">
+    <section class="player" aria-label="Space Game game" data-build="Build1" data-product="SpaceGame" data-version="1.0">
+      <div class="player-screen">
+        <canvas width="960" height="600" tabindex="0" aria-label="Space Game game canvas" hidden></canvas>
+        <div class="player-cover">
+          <img src="Images/SpaceGameCover.png" alt="">
+          <div class="launch">
+            <button type="button" class="button start-game">Play Space Game</button>
+            <p class="player-status" role="status"></p>
+            <progress max="1" value="0" aria-label="Game loading progress" hidden></progress>
+            <noscript><p>Enable JavaScript to play this game.</p></noscript>
+          </div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Spider Horror Game</div>
-      </div>
-    </div>
+      <div class="player-toolbar"><span>Space Game</span><button type="button" class="fullscreen" disabled>Fullscreen</button></div>
+      <div class="player-warning" role="status" hidden></div>
+    </section>
+    <aside class="game-details">
+      <h2>About the game</h2>
+      <p>Dodge asteroids and outlast alien waves.</p>
+      <h2>Controls</h2><ul class="controls"><li>W or Up to thrust</li><li>A / D or Left / Right to rotate</li><li>R to respawn</li><li>Esc to pause</li><li>Touch controls are in beta</li></ul>
 
-  <!-- Game Info -->
-  <section class="game-info">
-    <p>
-      One thing is said about this game... CHAOS. From aliens to asteroids this game is crazy. Dodger alien bullets and asteroids! How long can you survive?
-    </p>
-    </p>
-
-    <h3>🎮 Controls</h3>
-    <ul>
-      <li>W or Up arrow to move forward</li>
-      <li>A and D or arrows to rotate left and right</li>
-      <li>R to respawn</li>
-      <li>Escape to pause</li>
-      <li>Mobile Controls are in beta</li>
-
-    </ul>
-  </section>
-
-  <!-- Review -->
-  <section class="review-box">
-    <h2>Leave a Review</h2>
-    <a href="Reviews.html" class="review-button">Review for Space Game ➡️</a>
-  </section>
-<br>
-  
+      <a class="button secondary" href="Reviews.html?game=Space%20Game">Review this game</a>
+    </aside>
+  </div>
 </main>
-
-    <script>
-
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
-
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
-
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build1.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/Build1.data",
-        frameworkUrl: buildUrl + "/Build1.framework.js",
-        codeUrl: buildUrl + "/Build1.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "No more Smiles inc",
-        productName: "SpaceGame",
-        productVersion: "1.0",
-        showBanner: unityShowBanner,
-      };
-
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      canvas.style.background = "url('" + buildUrl + "/Build1.jpg') center / cover";
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
-
-      document.body.appendChild(script);
-
-    </script>
-
-
-  </body>
-  
-<footer>
-    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
-
-
+<footer class="site-footer">
+  <div class="wrap footer-inner"><span>More Smiles Games &middot; &copy; 2026 MilesOfSmiles</span><a href="index.html#games">Browse games</a></div>
+</footer>
+<script src="player.js" defer></script>
+</body>
 </html>

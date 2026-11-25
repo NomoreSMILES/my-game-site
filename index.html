@@ -1,78 +1,83 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
- 
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" href="Images/favicon.ico">
-
-
-    <title>Homepage</title>
-
-
-    <meta name="description" content="Hi Im just a Small guy with big dreams! Check out this website to see all my little games.">
-    <meta name="keywords" content="HTML, CSS, JavaScript, web development, games">
-
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Play six original browser games by MilesOfSmiles, from Space Game to Mop or Drop.">
+  <meta name="theme-color" content="#101018">
+  <title>More Smiles Games | Free Browser Games</title>
+  <link rel="icon" href="Images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <img src="Images/nomoresmiles-pfp.png" alt="Logo" class="logo">
-    <ul class="nav-links">
-
-    <li><a href ="changelog.html">ChangeLog📝</a></li>
-    <li><a href="Reviews.html">Reviews📢</a></li>
-    
-    
-    </nav>
-    
-    <div class="Games">
-<ul>
-
-    <li class="animation-border"><a href="spacegame.html"><img class="hover-image" src="Images/SpaceGameCover.png"></a></li>
-    <li class="animation-border"><a href="SpiderGame.html"><img class="hover-image" src="Images/SpiderGameCover"></a></li>
-    <li class="animation-border"><a href ="PebblePlatformer.html"><img class="hover-image" src="Images/PebblePlatformerCover.png"></a></li>
-    <li class="animation-border"><a href ="DeliveryDillemmas.html"><img class="hover-image" src="Images/Screenshot 2025-05-13 205850.png"></a></li>
-    <li class="animation-border"><a href ="FishyBuisness.html"><img class="hover-image" src="Images/Screenshot 2025-06-17 180151.png"></a></li>
-    <li class="animation-border"><a href ="MopOrDrop.html"><img class="hover-image" src="Images/MoporDropArt.png"></a></li>
-
-
-
-
-    
-
-</ul>
-</div>
-
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h2>📢 Annoucements: </h2>
-
-    <p class="White">We now have review! go to <a href="Reviews.html"> This Link</a> To Review my games! </p>
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
-
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><img src="Images/nomoresmiles-pfp.png" alt="" width="38" height="38">More Smiles<span>Games</span></a>
+    <nav aria-label="Main navigation"><a href="#games" aria-current="page">Games</a><a href="Reviews.html">Reviews</a><a href="changelog.html">Changelog</a></nav>
+  </div>
+</header>
+<main id="main" class="wrap home">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">The More Smiles arcade</p>
+      <h1 id="hero-title">A little more<br><em>play.</em></h1>
+      <p>Six original browser games by MilesOfSmiles. Dodge asteroids, outrun a spider, or pick up a mop.</p>
+      <a class="button" href="#games">Browse games</a>
+    </div>
+    <a class="hero-feature" href="spacegame.html">
+      <img src="Images/SpaceGameCover.png" alt="" fetchpriority="high">
+      <div class="feature-copy"><span class="eyebrow">Featured game</span><strong>Space Game</strong><span class="feature-play">Play Space Game</span></div>
+    </a>
+  </section>
+  <section id="games" aria-labelledby="games-title" class="catalog">
+    <div class="section-heading"><h2 id="games-title">Game library</h2><span>6 games</span></div>
+    <ul class="game-grid">
+      <li class="game-card">
+        <a href="spacegame.html">
+          <img src="Images/SpaceGameCover.png" alt="" width="400" height="250" loading="lazy">
+          <div class="card-copy"><span class="genre">Shooter</span><h3>Space Game</h3><p>Dodge asteroids and outlast alien waves.</p><span class="card-play">Play Space Game</span></div>
+        </a>
+      </li>
+      <li class="game-card">
+        <a href="MopOrDrop.html">
+          <img src="Images/MoporDropArt.png" alt="" width="400" height="250" loading="lazy">
+          <div class="card-copy"><span class="genre">Simulation</span><h3>Mop or Drop</h3><p>Race through your janitor shift before the messes pile up.</p><span class="card-play">Play Mop or Drop</span></div>
+        </a>
+      </li>
+      <li class="game-card">
+        <a href="DeliveryDillemmas.html">
+          <img src="Images/Screenshot%202025-05-13%20205850.png" alt="" width="400" height="250" loading="lazy">
+          <div class="card-copy"><span class="genre">Action</span><h3>Delivery Dilemmas</h3><p>Dodge dogs and traffic to get your packages delivered.</p><span class="card-play">Play Delivery Dilemmas</span></div>
+        </a>
+      </li>
+      <li class="game-card">
+        <a href="FishyBuisness.html">
+          <img src="Images/Screenshot%202025-06-17%20180151.png" alt="" width="400" height="250" loading="lazy">
+          <div class="card-copy"><span class="genre">Survival</span><h3>Fishy Business</h3><p>Fill the chef's fish orders and keep an eye out for sharks.</p><span class="card-play">Play Fishy Business</span></div>
+        </a>
+      </li>
+      <li class="game-card">
+        <a href="PebblePlatformer.html">
+          <img src="Images/PebblePlatformerCover.png" alt="" width="400" height="250" loading="lazy">
+          <div class="card-copy"><span class="genre">Platformer</span><h3>Pebble Platformer</h3><p>Leap across platforms and watch for the crumbling ones.</p><span class="card-play">Play Pebble Platformer</span></div>
+        </a>
+      </li>
+      <li class="game-card">
+        <a href="SpiderGame.html">
+          <img src="Images/SpiderGameCover" alt="" width="400" height="250" loading="lazy">
+          <div class="card-copy"><span class="genre">Horror</span><h3>Spider Chase</h3><p>Find a way out before the spider finds you.</p><span class="card-play">Play Spider Chase</span></div>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <aside class="feedback-banner"><div><h2>Played a game?</h2><p>Tell me what worked and what I should improve.</p></div><a class="button secondary" href="Reviews.html">Leave a review</a></aside>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner"><span>More Smiles Games &middot; &copy; 2026 MilesOfSmiles</span><a href="index.html#games">Browse games</a></div>
+</footer>
 </body>
-
-<footer>
-    <p class="White">Copyright © 2026 MilesOfSmiles. All rights reserved.</p>
 </html>
-
-
-
-
-
-
